@@ -1,3 +1,56 @@
+/* Primer archivo CSS */
+:root {
+  --coral-vivo: #FF6F61;
+  --amarillo-mostaza: #FFD662;
+  --naranja-brillante: #FF9A3D;
+  --rosa-chicle: #FF66B3;
+  --rojo-suave: #E94F37;
+  --melocoton-claro: #ffeee3;
+  --rojo: #fe4f3f;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background-color: var(--melocoton-claro);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 80px;
+  margin-left: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-right: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--rojo-suave);
+  font-weight: bold;
+  background-color: var(--amarillo-mostaza);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--naranja-brillante);
+  color: white;
+}
+
+/* Segundo archivo CSS */
 /* Paleta de colores cálidos y divertidos */
 :root {
   --coral-vivo: #FF6F61;
@@ -21,7 +74,6 @@ body {
   align-items: center; */
   min-height: 100vh;
 }
-
 
 /* Centrar el h1 */
 h1 {
@@ -102,7 +154,6 @@ h1 {
   line-height: 1.5;
 }
 
-
 #botones-flotantes {
   width: 300px;
   position: fixed;
@@ -132,6 +183,7 @@ h1 {
 #botones-flotantes button:hover {
   background-color: #2d4373;
 }
+
 .imagen-pintor {
   width: 500px;             /* Ancho fijo del rectángulo */
   height: 250px;            /* Alto fijo del rectángulo */
@@ -145,7 +197,7 @@ h1 {
 }
 
 /* Responsivo para móviles */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+@media only screen and (min-width: 300px) and (max-width: 767.98px) {
   #quiz-container, #resultado {
     width: 90vw;
     padding: 20px;
@@ -166,10 +218,10 @@ h1 {
   }
 
   #resultado p strong {
-  display: block;
-  text-align: center;
-  margin-top: 1em;
-  font-size: 1.2em;
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 1.2em;
   }
 
   #botones-flotantes {
