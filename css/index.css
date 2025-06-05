@@ -42,7 +42,7 @@
       margin: 0;
     }
     
-    @media (max-width: 768px) {
+    @media only screen and (min-width: 576px) and (max-width: 767.98px) {
       .quizzes-grid {
         grid-template-columns: 1fr;
       }

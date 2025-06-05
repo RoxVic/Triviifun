@@ -145,7 +145,7 @@ h1 {
 }
 
 /* Responsivo para móviles */
-@media (max-width: 768px) {
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
   #quiz-container, #resultado {
     width: 90vw;
     padding: 20px;
