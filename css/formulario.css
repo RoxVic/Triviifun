@@ -1,0 +1,193 @@
+/* Paleta de colores cálidos y divertidos */
+:root {
+  --coral-vivo: #FF6F61;
+  --amarillo-mostaza: #FFD662;
+  --naranja-brillante: #FF9A3D;
+  --rosa-chicle: #FF66B3;
+  --rojo-suave: #E94F37;
+  --melocoton: #FFD1B3;
+  --rojo: #fe4f3f;
+}
+
+/* Estilos base para el quiz */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--melocoton);
+  color: var(--rojo-suave);
+  margin: 0;
+  padding: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
+}
+
+
+/* Centrar el h1 */
+h1 {
+  text-align: center;
+  color: var(--rojo);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  /* font-family: "Alfa Slab One", serif; */
+}
+
+/* Contenedor del quiz */
+#quiz-container {
+  width: 75vw;       /* 75% del ancho de la ventana */
+  max-width: 700px;  /* ancho máximo para pantallas grandes */
+  margin: 0 auto;    /* centrado horizontal */
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Pregunta */
+.pregunta {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--coral-vivo);
+}
+
+/* Opciones en columna vertical */
+.opcion {
+  display: block;      /* que ocupe toda la línea */
+  width: 100%;        /* que abarque todo el ancho del contenedor */
+  max-width: none;    /* quitar límite si hay */
+  margin: 10px auto;  /* margen arriba y abajo, centrado horizontal */
+  background-color: var(--naranja-brillante);
+  color: white;
+  font-size: 1.2rem;
+  padding: 14px 0;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover de opción */
+.opcion:hover {
+  background-color: var(--rosa-chicle);
+}
+
+/* Resultado */
+#resultado {
+  width: 75vw;
+  max-width: 700px;
+  margin: 30px auto 40px;
+  background: white;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: var(--rojo-suave);
+  text-align: center;
+}
+
+#resultado h2 {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 600;
+  color: var(--rojo);
+  margin-bottom: 15px;
+}
+
+#resultado p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+
+#botones-flotantes {
+  width: 300px;
+  position: fixed;
+  top: 200px;
+  right: 30px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#botones-flotantes button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #3b5998;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#botones-flotantes button:hover {
+  background-color: #2d4373;
+}
+.imagen-pintor {
+  width: 500px;             /* Ancho fijo del rectángulo */
+  height: 250px;            /* Alto fijo del rectángulo */
+  border-radius: 12px;
+  margin: 20px auto;        /* Centrado horizontal */
+  background-repeat: repeat;   /* Repetir imagen */
+  background-size: contain;    /* Contener la imagen en su tamaño original */
+  background-position: center; /* Centrar imagen dentro del fondo */
+  border: 2px solid #ccc;      /* Opcional: borde para que se vea el rectángulo */
+  background-color: #f5f5f5;   /* Opcional: color de fondo si la imagen no llena todo */
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  #quiz-container, #resultado {
+    width: 90vw;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .opcion {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .pregunta {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  #resultado p strong {
+  display: block;
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.2em;
+  }
+
+  #botones-flotantes {
+    position: static;        /* Ya no es fijo */
+    flex-direction: column;     /* Los botones se alinean horizontalmente */
+    justify-content: center; /* Centrado horizontal */
+    margin: 10px auto;        /* Separación desde el contenido anterior */
+    gap: 10px;
+  }
+
+  .imagen-pintor {
+    width: 100%;             /* Ancho fijo del rectángulo */
+    border-radius: 12px;
+    margin: 20px auto;        /* Centrado horizontal */
+    background-repeat: repeat;   /* Repetir imagen */
+    background-size: contain;    /* Contener la imagen en su tamaño original */
+    background-position: center; /* Centrar imagen dentro del fondo */
+    /*border: 2px solid #ccc;      /* Opcional: borde para que se vea el rectángulo */
+    background-color: #f5f5f5;   /* Opcional: color de fondo si la imagen no llena todo */
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pintores1</title>
+  <link rel="stylesheet" href="css/formulario.css">
+  <link rel="stylesheet" href="css/nav-bar.css">
+  <link rel="icon" href="imagenes/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="imagenes/logo-2.png" alt="TrivijjFun Logo" class="logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Tests</a></li>
+    </ul>
+  </nav>
+  <div class="quizz">
+    <h1>🎨 ¿Qué pintor serías? 😲</h1>
+
+    <div id="quiz-container">
+      <!-- Aquí se cargan las preguntas -->
+    </div>
+
+    <div id="resultado" style="display:none;"></div>
+
+    <div id="botones-flotantes">
+      <p style="color: #646464;">¡No dejes que tus amigos se lo pierdan! Comparte este test y descubre juntos quiénes serían grandes artistas 🎨</p>
+      <button id="btn-facebook">📘 Compartir este test en Facebook</button>
+      <button id="btn-enlace">🔗 Copiar enlace de este test</button>
+      <hr>
+      <p style="color: #646464; margin-bottom: 12px; font-size: 14px;">Podría interesarte:</p>
+  
+      <a href="dictadores.html" style="text-decoration: none;">
+        <button style="display: flex; align-items: center; gap: 10px; padding: 10px; width: 100%; background-color: #fff;">
+          <img src="imagenes/dictadores.png" alt="Quiz recomendado" style="height: 80px; object-fit: cover; border-radius: 6px;">
+          <div style="text-align: left;">
+            <div style="font-weight: bold; color: rgb(124, 122, 122); font-size: 14px;">Descucbre un dictador</div>
+            <div style="color: rgb(124, 122, 122); font-size: 12px;">De a cuerdo a tus hábis descubre un dictador con un toque humorístico</div>
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
+  <script src="js/pintores1.js"></script>
+</body>
+</html>
