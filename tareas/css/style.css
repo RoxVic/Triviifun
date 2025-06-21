@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input, button {
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4bbfbe;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ul {
+    list-style: none;
+}
+
+#lista-tareas li {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  color: white;
+}
+
+/* Elementos impares: 1ro, 3ro, 5to... */
+#lista-tareas li:nth-child(odd) {
+  background-color: #4bbfbe;
+}
+
+/* Elementos pares: 2do, 4to, 6to... */
+#lista-tareas li:nth-child(even) {
+  background-color: #e66f51;
+}
