@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Mover imagen con flechas</title>
+<style>
+  #container {
+    width: 400px;
+    height: 300px;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+  }
+  #miImagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    transition: top 0.1s, left 0.1s; /* suaviza el movimiento */
+  }
+</style>
+</head>
+<body>
+
+<h1>Mover imagen con flechas del teclado</h1>
+
+<div id="container">
+  <img src="https://via.placeholder.com/50" id="miImagen" alt="Imagen a mover">
+</div>
+
+<script>
+  const img = document.getElementById('miImagen');
+  const container = document.getElementById('container');
+
+  // Posición inicial
+  let posX = 0;
+  let posY = 0;
+  const step = 10; // pixeles que se mueve por cada pulsación
+
+  // Tamaños para limitar el movimiento
+  const maxX = container.clientWidth - img.clientWidth;
+  const maxY = container.clientHeight - img.clientHeight;
+
+  window.addEventListener('keydown', (e) => {
+    switch (e.key) {
+      case 'ArrowUp':
+        posY = Math.max(0, posY - step);
+        break;
+      case 'ArrowDown':
+        posY = Math.min(maxY, posY + step);
+        break;
+      case 'ArrowLeft':
+        posX = Math.max(0, posX - step);
+        break;
+      case 'ArrowRight':
+        posX = Math.min(maxX, posX + step);
+        break;
+      default:
+        return; // ignorar otras teclas
+    }
+
+    img.style.top = posY + 'px';
+    img.style.left = posX + 'px';
+
+    // Prevenir el scroll con flechas en la página
+    e.preventDefault();
+  });
+</script>
+
+</body>
+</html>

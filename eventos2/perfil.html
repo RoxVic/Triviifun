@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi perfil interactivo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mi perfil interactivo</h1>
+  <button id="mostrar">Mostrar perfil</button>
+  <div id="resultado"></div>
+
+  <script>
+    // Objeto literal basado en la guía de MDN
+    const persona = {
+      nombre: "Laura",
+      edad: 25,
+      ocupacion: "Desarrolladora web",
+      presentarse: function () {
+        return `Hola, soy ${this.nombre}, tengo ${this.edad} años y trabajo como ${this.ocupacion}.`;
+      }
+    };
+
+    const boton = document.getElementById("mostrar");
+    const resultado = document.getElementById("resultado");
+
+    // Evento: al hacer clic, se ejecuta el método del objeto
+    boton.addEventListener("click", () => {
+      resultado.textContent = persona.presentarse();
+    });
+  </script>
+
+</body>
+</html>
