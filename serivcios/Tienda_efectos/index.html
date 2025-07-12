@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda en línea</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9; /* Fondo claro para destacar los productos */
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+
+      /* Animación separada */
+      animation-name: fadeInDown;               /* Nombre de la animación */
+      animation-duration: 1s;                   /* Duración de 1 segundo */
+      animation-timing-function: ease-out;      /* Empieza rápido, termina lento */
+    }
+
+    section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);    /* 4 columnas iguales */
+      gap: 20px;                                 /* Espacio entre tarjetas */
+    }
+
+    article {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      background: white;
+      transform: scale(1); /* Estado inicial sin zoom */
+
+      /* Transición separada */
+      transition-property: transform, box-shadow;  /* Qué propiedades cambian con transición */
+      transition-duration: 0.3s;                   /* Cuánto dura la transición */
+      transition-timing-function: ease;            /* Cambio suave */
+
+      /* Animación separada */
+      animation-name: fadeInUp;                    /* Nombre de la animación */
+      animation-duration: 0.8s;                    /* Duración de 0.8 segundos */
+      animation-timing-function: ease;             /* Velocidad suave */
+      animation-fill-mode: both;                   /* Conserva estado final */
+    }
+
+    article:hover {
+      transform: scale(1.05);                      /* Aumenta tamaño al pasar el mouse */
+      box-shadow: 4px 6px 15px rgba(0,0,0,0.2);     /* Sombra más intensa */
+    }
+
+    article img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+
+      /* Transición separada */
+      transition-property: transform;              /* Aplica transición solo a la transformación */
+      transition-duration: 0.3s;                   /* Duración */
+      transition-timing-function: ease;            /* Suave */
+    }
+
+    article img:hover {
+      transform: scale(1.1);                        /* Efecto de zoom en la imagen */
+    }
+
+    h2 {
+      font-size: 1.1em;
+      margin: 10px 0 5px;
+    }
+
+    p {
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #e66f51; /* Color de precio destacado */
+    }
+
+    button {
+      background-color: #007BFF;  /* Azul brillante */
+      color: white;               /* Texto blanco */
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+
+      /* Transiciones separadas */
+      transition-property: background-color, transform;  /* Cambiar color y escala */
+      transition-duration: 0.3s, 0.2s;                    /* Duración de cada transición */
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Azul más oscuro al hacer hover */
+      transform: scale(1.03);    /* Ligero aumento */
+    }
+
+    /* Animación que aparece desde abajo */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;                    /* Inicia invisible */
+        transform: translateY(40px);   /* Desde abajo */
+      }
+      to {
+        opacity: 1;                    /* Termina visible */
+        transform: translateY(0);      /* Posición original */
+      }
+    }
+
+    /* Animación que aparece desde arriba */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;                     /* Inicia invisible */
+        transform: translateY(-30px);   /* Desde arriba */
+      }
+      to {
+        opacity: 1;                     /* Termina visible */
+        transform: translateY(0);       /* Posición original */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda de Productos</h1>
+  </header>
+
+  <section></section>
+
+  <script>
+    // Función que obtiene los productos desde la API
+    async function populate() {
+      const response = await fetch('https://fakestoreapi.com/products'); // API pública de productos
+      const products = await response.json();
+      populateProducts(products); // Llama a la función que construye el HTML
+    }
+
+    // Función que genera los elementos HTML para cada producto
+    function populateProducts(products) {
+      const section = document.querySelector('section');
+
+      for (const product of products) {
+        const article = document.createElement('article');
+
+        const img = document.createElement('img');
+        img.src = product.image;
+        img.alt = product.title;
+
+        const title = document.createElement('h2');
+        title.textContent = product.title;
+
+        const price = document.createElement('p');
+        price.className = 'price';
+        price.textContent = `$${product.price}`;
+
+        const desc = document.createElement('p');
+        desc.textContent = product.description;
+
+        const botonComprar = document.createElement('button');
+        botonComprar.innerText = "Comprar";
+
+        // Agrega los elementos al artículo
+        article.appendChild(img);
+        article.appendChild(title);
+        article.appendChild(price);
+        article.appendChild(desc);
+        article.appendChild(botonComprar);
+
+        // Agrega el artículo a la sección principal
+        section.appendChild(article);
+      }
+    }
+
+    // Ejecuta la carga de productos al iniciar
+    populate();
+  </script>
+</body>
+</html>
